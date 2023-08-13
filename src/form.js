@@ -1,5 +1,6 @@
+import axios from "axios"
 import { startLoading, loadingMessage, stopLoading } from "./loading"
-import { loadVideo } from "./youtube-api"
+import { getVideoId, loadVideo } from "./youtube-api"
 
 const form = document.querySelector('#form')
 
@@ -14,6 +15,9 @@ form.addEventListener('submit', async(e)=> {
     const url = formData.get('url')
 
     await loadVideo(url)
+
+    loadingMessage('Baixando e convertendo o vídeo')
+    await axios.get('http://localhost:3333/audio?v=' + getVideoId(url))
   }catch(error){
     console.log('[SUBMIT_ERROR]', error)
   }finally {
