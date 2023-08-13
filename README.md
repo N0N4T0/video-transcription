@@ -25,7 +25,7 @@ Project Video Transcription is a project to help transcribe videos. <br>
    > npm run dev
 
 4. Start backend
-   > npm run dev
+   > npm run server
 
 ## Technologies
 
