@@ -18,8 +18,8 @@ form.addEventListener('submit', async(e)=> {
 
     await loadVideo(url)
 
-    // loadingMessage('Baixando e convertendo o vídeo')
-    // await axios.get('http://localhost:3333/audio?v=' + getVideoId(url))
+    loadingMessage('Baixando e convertendo o vídeo')
+    await axios.get('http://localhost:3333/audio?v=' + getVideoId(url))
 
     const data = await transcribeAudio()
     renderText(data)
