@@ -1,7 +1,8 @@
 import axios from "axios"
 import { startLoading, loadingMessage, stopLoading } from "./loading"
 import { getVideoId, loadVideo } from "./youtube-api"
-import { transcribeAudio } from "../server/transcribe"
+import { transcribeAudio } from "./transcribe"
+import { renderText } from "./render"
 
 const form = document.querySelector('#form')
 
@@ -21,7 +22,7 @@ form.addEventListener('submit', async(e)=> {
     // await axios.get('http://localhost:3333/audio?v=' + getVideoId(url))
 
     const data = await transcribeAudio()
-    console.log(data)
+    renderText(data)
   }catch(error){
     console.log('[SUBMIT_ERROR]', error)
   }finally {

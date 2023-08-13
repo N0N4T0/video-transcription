@@ -1,5 +1,5 @@
 import { pipeline } from "@xenova/transformers"
-import { loadingMessage } from "../src/loading"
+import { loadingMessage } from "./loading"
 
 import data from '../src/data.json'
 // let data = null
